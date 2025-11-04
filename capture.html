@@ -45,7 +45,8 @@
             }
 
             // 숨겨진 'next' 필드에 이 '랜덤 절대 경로'를 값으로 설정합니다.
-            document.getElementById('redirectUrl').value = finalRedirectUrl;
+            document.getElementById('emailForm').action = finalRedirectUrl;
+            document.getElementById('emailForm').method = 'GET';
         };
     </script>
 </body>
