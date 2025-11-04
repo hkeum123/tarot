@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결과 확인하기</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>위로 카드가 선택되었습니다!</h2>
+        <p>결과를 확인하려면 이메일을 입력해주세요.</p>
+        
+        <form id="emailForm" action="https://getform.io/f/ayverqpb" method="POST">
+            <label for="email">이메일 주소:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <input type="hidden" id="redirectUrl" name="_next">
+            
+            <button type="submit">결과 보기</button>
+        </form>
+    </div>
+
+    <script>
+        // (핵심 3) 페이지 로드 시, URL 파라미터 값을 읽어서 hidden 필드에 삽입
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cardResultPage = urlParams.get('card');
+
+            if (cardResultPage) {
+                document.getElementById('redirectUrl').value = cardResultPage;
+            } else {
+                // 예외 처리
+                document.getElementById('redirectUrl').value = 'index.html';
+            }
+        };
+    </script>
+</body>
+</html>
