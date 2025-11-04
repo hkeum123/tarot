@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 위로 카드</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>당신의 연애 고민을 위한<br>오늘의 위로 카드</h1>
+        <p>카드를 눌러 당신의 위로 카드를 뽑아보세요.</p>
+        
+        <img src="img/tarot_spread.png" 
+             alt="타로카드 스프레드" 
+             id="tarotSpread" 
+             class="tarot-image">
+    </div>
+
+    <script>
+        // 1. 클릭 이벤트 리스너 추가
+        document.getElementById('tarotSpread').addEventListener('click', function() {
+            // 2. 준비된 결과 페이지 목록 (MVP이므로 3개만)
+            const resultPages = [
+                'result_01.html', 
+                'result_02.html', 
+                'result_03.html'
+            ];
+
+            // 3. 목록 중 하나를 랜덤으로 선택
+            const randomIndex = Math.floor(Math.random() * resultPages.length);
+            const selectedCard = resultPages[randomIndex];
+
+            // 4. (핵심) 선택된 카드 정보를 '쿼리 파라미터'로 붙여서 이메일 입력 페이지로 이동
+            window.location.href = `capture.html?card=${selectedCard}`;
+        });
+    </script>
+</body>
+</html>
