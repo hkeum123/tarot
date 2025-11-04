@@ -22,16 +22,11 @@
     </div>
 
     <script>
-        // 페이지가 로드될 때 실행됩니다.
+        // 페이지가 로드될 때 '한 번만' 실행됩니다.
         window.onload = function() {
             
-            // --- [ 1. 여기를 꼭 수정하세요! ] ---
-            // GitHub Pages 배포가 완료된 "기본 주소"를 여기에 입력합니다.
-            // (주의: 맨 마지막에 / (슬래시)는 빼고 입력하세요)
-            const baseUrl = "https://hkeum123.github.io/tarot/";
-            // 예시: const baseUrl = "https://coding-partner.github.io/tarot-mvp";
-            // ---------------------------------
-
+            // GitHub Pages 배포가 완료된 "기본 주소"입니다.
+            const baseUrl = "https://hkeum123.github.io/tarot";
 
             // URL에서 'card' 파라미터 값(랜덤으로 뽑힌 값)을 가져옵니다.
             const urlParams = new URLSearchParams(window.location.search);
@@ -42,7 +37,7 @@
             
             if (cardResultPage) {
                 // baseUrl과 랜덤 파일 이름을 합쳐 완전한 주소를 만듭니다.
-                // 예: "https://.../tarot-mvp/result_02.html"
+                // 예: "https://hkeum123.github.io/tarot/result_02.html"
                 finalRedirectUrl = `${baseUrl}/${cardResultPage}`;
             } else {
                 // 예외 처리 (카드를 안 뽑고 접근 시 메인으로)
